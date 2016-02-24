@@ -1,6 +1,6 @@
 
 /***************************************************************************
-              OPEN VFO v. 1.0 - IK8YFW - 2015
+              OPEN VFO v. 1.0 - IK8YFW - 2015 - 2016
 This is an ham radio based on 9850 DDS.
 
 Author:   GIUSEPPE CALLIPO - ik8yfw@libero.it
@@ -9,6 +9,7 @@ License:  The software is released under Creative Commons (CC) license.
 All text above, must be included in any redistribution
 ****************************************************************************/
 /******************************************************************
+ Verions history
  REV. 0.0.4 - 09.03.2015
  REV. 0.0.5 - 09.04.2015
  REV. 1.0.0 - 31.10.2015 
@@ -46,8 +47,8 @@ LiquidCrystal lcd(9, 10, 11, 12, 13, 14);
 int32_t freqVFOA =0; 
 int32_t freqVFOB =0; 
 
-int32_t DDS_MIN_FREQ =30000;    //30  KHz
-int32_t DDS_MAX_FREQ =30000000;  //30  MHz
+int32_t DDS_MIN_FREQ =30000;    //30  KHz (as low limit frequency)
+int32_t DDS_MAX_FREQ =30000000;  //30  MHz (as upper limit frequency)
 
 /***************************************************************************************
                      ENCODER DEFINITION PARAMETERS
@@ -293,7 +294,7 @@ void MENU_readButtonsStatus(){
 
    //MENU_LEVEL 0:  A/B  MOD  BND     or    A/B A=B BND if  MODE_ACTIVE is not defined
    //MENU_LEVEL 1:  SCN       RIT  
-   //MENU_LEVEL 2:  A/B  A=B  SPL
+   //MENU_LEVEL 2:  A/B  A=B  SPL     not active in this version
    BTN_STATUS_1 = digitalRead(BTN_LN1);
    BTN_STATUS_2 = digitalRead(BTN_LN2);
    if (MENU_LEVEL == 0){
